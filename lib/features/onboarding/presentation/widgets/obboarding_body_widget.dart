@@ -10,15 +10,25 @@ class OnBoardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 600,
       child: PageView.builder(
+        physics: const BouncingScrollPhysics(),
         controller: controller,
         itemCount: 3,
         itemBuilder: (context, index) {
           return Column(
             children: [
               //! image
-              Image.asset(AppAssets.imagesOnboarding1),
+              Container(
+                  height: 290,
+                  width: 343,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AppAssets.imagesOnboarding1),
+                      fit: BoxFit.fill,
+                    ),
+                  )),
               //! indicator
               const SizedBox(height: 24),
               CustomSmoothPageIndicator(controller: controller),
@@ -28,12 +38,19 @@ class OnBoardingBody extends StatelessWidget {
                 AppStrings.onboardingTitleOne,
                 style: CustomTextStyle.poppins600Style28.copyWith(fontSize: 24),
                 textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
               ),
               //! subtitle
               const SizedBox(height: 16),
-              const Text(AppStrings.onboardingSubtitleOne,
-                  style: CustomTextStyle.poppins300Style16,
-                  textAlign: TextAlign.center),
+              const Text(
+                AppStrings.onboardingSubtitleOne,
+                style: CustomTextStyle.poppins300Style16,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
+              
             ],
           );
         },
