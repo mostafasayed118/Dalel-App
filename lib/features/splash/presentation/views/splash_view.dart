@@ -1,4 +1,6 @@
+import 'package:dalel_app/core/database/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
+import 'package:dalel_app/core/services/services_locator.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,14 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
+    bool isOnBoardingVisited = sl<CacheHelper>().getData(key: AppStrings.isOnBoardingVisited) ?? false;
+    if (isOnBoardingVisited) {
+      delayedNavigate(context, "/signup");
+    } else {
+      delayedNavigate(context, "/onboarding");
+    }
+    
     super.initState();
-    delayedNavigate(context);
   }
 
   @override
@@ -32,8 +40,9 @@ class _SplashViewState extends State<SplashView> {
 
 void delayedNavigate(
   BuildContext context,
+  String path,
 ) {
   Future.delayed(const Duration(seconds: 2), () {
-    customNavigatePushReplacement(context, "/onboarding");
+    customNavigatePushReplacement(context, path);
   });
 }

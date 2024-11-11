@@ -1,18 +1,20 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
+import 'package:dalel_app/core/widgets/custom_text_btn.dart';
 import 'package:flutter/material.dart';
 
 class CustomUpperNavBar extends StatelessWidget {
   const CustomUpperNavBar({
-    super.key,
+    super.key, required this.onPressed,
   });
 
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
-    return const Align(
+    return  Align(
       alignment: Alignment.centerRight,
-      child: Text(AppStrings.textButtonSkip,
-          style: CustomTextStyle.poppins400Style16),
+      child: CustomTextButton(text: AppStrings.textButtonSkip,
+          style: CustomTextStyle.poppins400Style16, onPressed: onPressed),
     );
   }
 }

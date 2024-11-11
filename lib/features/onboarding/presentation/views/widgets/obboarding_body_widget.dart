@@ -1,41 +1,35 @@
-import 'package:dalel_app/core/utils/app_assets.dart';
-import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_style.dart';
-import 'package:dalel_app/features/onboarding/presentation/widgets/custom_smooth_page_indicator_widget.dart';
+import 'package:dalel_app/features/onboarding/data/models/onboarding_model.dart';
+import 'package:dalel_app/features/onboarding/presentation/views/widgets/custom_image_onboarding.dart';
+import 'package:dalel_app/features/onboarding/presentation/views/widgets/custom_smooth_page_indicator_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingBody extends StatelessWidget {
-  OnBoardingBody({super.key});
-  final PageController controller = PageController();
+  OnBoardingBody({super.key, required this.controller, this.onPageChanged});
+  PageController controller = PageController();
+  final Function(int)? onPageChanged;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 600,
+      height: 500,
       child: PageView.builder(
+        onPageChanged: onPageChanged,
         physics: const BouncingScrollPhysics(),
         controller: controller,
-        itemCount: 3,
+        itemCount: onBoardingList.length,
         itemBuilder: (context, index) {
           return Column(
             children: [
               //! image
-              Container(
-                  height: 290,
-                  width: 343,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(AppAssets.imagesOnboarding1),
-                      fit: BoxFit.fill,
-                    ),
-                  )),
+              CustomImageOnBoarding(index: index),
               //! indicator
               const SizedBox(height: 24),
               CustomSmoothPageIndicator(controller: controller),
               //! title
               const SizedBox(height: 32),
               Text(
-                AppStrings.onboardingTitleOne,
+                onBoardingList[index].title,
                 style: CustomTextStyle.poppins600Style28.copyWith(fontSize: 24),
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
@@ -43,14 +37,13 @@ class OnBoardingBody extends StatelessWidget {
               ),
               //! subtitle
               const SizedBox(height: 16),
-              const Text(
-                AppStrings.onboardingSubtitleOne,
+              Text(
+                onBoardingList[index].subTitle,
                 style: CustomTextStyle.poppins300Style16,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
-              
             ],
           );
         },

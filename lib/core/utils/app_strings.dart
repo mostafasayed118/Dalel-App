@@ -20,13 +20,15 @@ abstract class AppStrings {
   static const String dontHaveAnAccount = "Don’t have an account ?";
 
   //! ----------------- Register -----------------
-  static const String iHaveAgree = "I have agree to our";
-  static const String alreadyHaveAnAccount = "Already have an account ?";
+  static const String iHaveAgree = "I have agree to our ";
+  static const String alreadyHaveAnAccount = "Already have an account ? ";
 //! ----------------- Forget Password  -----------------
   static const String forgetPassword = "Forget Password";
-  static const String forgetPasswordMessage = "Enter your email address to reset your password";
+  static const String forgetPasswordMessage =
+      "Enter your email address to reset your password";
   static const String verify = "Verify Account";
-  static const String enter4DigitCode = "Enter 4 digit code we have sent to your email";
+  static const String enter4DigitCode =
+      "Enter 4 digit code we have sent to your email";
   static const String havenTReceived = "Haven’t received verification code?";
 //! ----------------- Home  -----------------
   static const String historicalPeriod = "Historical periods";
@@ -59,7 +61,8 @@ abstract class AppStrings {
   static const String myCreditCard = "My Credit Card";
   static const String myElectricCash = "My Electric Cash";
   static const String orderSuccess = "Order Success";
-  static const String orderSuccessMessage = "Thank you for your order here and your package will be sent to your address very quickly and fast good product";
+  static const String orderSuccessMessage =
+      "Thank you for your order here and your package will be sent to your address very quickly and fast good product";
   //! ----------------- Buttons -----------------
   static const String buttonNext = "Next";
   static const String buttonCreateAccount = "Create Account";
@@ -67,8 +70,9 @@ abstract class AppStrings {
   static const String buttonCheckout = "Checkout Now";
   static const String buttonConfirm = "Confirm Payment";
   static const String buttonBack = "Back To Home";
-  static const String buttonSend ="Send Verification Code";
+  static const String buttonSend = "Send Verification Code";
   static const String buttonVerify = "Verification Now";
+  static const String buttonSignUp = "Sign Up";
   //! ----------------- TextButton -----------------
   static const String textButtonForgotPassword = "Forgot Password?";
   static const String textButtonLoginNow = "Login Now";
@@ -79,8 +83,16 @@ abstract class AppStrings {
   static const String textButtonResend = "Resend Code";
 
   //! ----------------- TextFieldsHints -----------------
-  static const String hintEmail = "Email Address";
-  static const String hintPassword = "Password";
-  static const String hintFirstName = "First Name";
-  static const String hintLastName = "Last Name";
+  static const String hintEmail = "Enter Email Address";
+  static const String hintPassword = "Enter Password";
+  static const String hintFirstName = "Enter First Name";
+  static const String hintLastName = "Enter Last Name";
+//! -----------------  TextFieldsLabels -----------------
+  static const String labelEmail = "Email Address";
+  static const String labelPassword = "Password";
+  static const String labelFirstName = "First Name";
+  static const String labelLastName = "Last Name";
+
+  //! ----------------- Keys Cache -----------------
+  static const String isOnBoardingVisited = "isOnBoardingVisited";
 }
